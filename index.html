@@ -1,48 +1,42 @@
 <html>
 <head>
-    <script>
-        // Name and Password from the register-form
-        var name = document.getElementById('name');
-        var pw = document.getElementById('pw');
-
-        // storing input from register-form
-        function store() {
-            localStorage.setItem('name', name.value);
-            localStorage.setItem('pw', pw.value);
-        }
-
-        // check if stored data from register-form is equal to entered data in the   login-form
-        function check() {
-
-            // stored data from the register-form
-            var storedName = localStorage.getItem('name');
-            var storedPw = localStorage.getItem('pw');
-
-            // entered data from the login-form
-            var userName = document.getElementById('userName');
-            var userPw = document.getElementById('userPw');
-
-            // check if stored data from register-form is equal to data from login form
-            if(userName.value !== storedName || userPw.value !== storedPw) {
-                alert('ERROR');
-            }else {
-                alert('You are loged in.');
-            }
-        }
-    </script>
+    <script src="home.js?9"></script>
     <title>Learning JavaScript</title>
 </head>
-<body>
-<form id="register-form">
+<body onload="myOnload()">
+<h1>Login</h1>
+<form id="register-form" onsubmit="return false">
     <input id="name" type="text" placeholder="Name" value=""/>
-    <input id="pw" type="password" placeholder="Password" value=""/>
-    <input id="rgstr_btn" type="submit" value="get Account" onClick="store()"/>
+    <input id="pw" type="text" placeholder="Password" value=""/>
+    <input id="rgstr_btn" type="submit" value="store" onClick="store()"/>
 </form>
 
-<form id="login-form">
+<form id="login-form" onsubmit="return false">
     <input id="userName" type="text" placeholder="Enter Username" value=""/>
-    <input id="userPw" type="password" placeholder="Enter Password" value=""/>
+    <input id="userPw" type="text" placeholder="Enter Password" value=""/>
     <input id="login_btn" type="submit" value="Login" onClick="check()"/>
+</form>
+
+<h1>Session</h1>
+<form id="sessionr-form" onsubmit="return false">
+    <input id="session" type="text" placeholder="No session" value=""/>
+    <input id="session_btn" type="submit" value="simulate ACTYObjSetSession" onClick="setSession()"/>
+</form>
+
+</body>
+</html>
+
+<h1>Call/Chat</h1>
+<form id="chat-form" onsubmit="return false">
+    <input id="call_btn" type="submit" value="Call ACTYObjCall" onClick="ACTYObjCall()"/>
+    <input id="chat_btn" type="submit" value="Call ACTYObjChat" onClick="ACTYObjChat()"/>
+</form>
+
+<h1>GPS</h1>
+<form id="gps-form" onsubmit="return false">
+    <input id="gps" type="text" placeholder="No gps" value=""/>
+    <input id="gps_btn" type="submit" value="Call ACTYObjGetGPS" onClick="ACTYObjGetGPS()"/>
+    <input id="gps_sim_btn" type="submit" value="simulate ACTYObjSetGPS" onClick="setGPS()"/>
 </form>
 
 </body>

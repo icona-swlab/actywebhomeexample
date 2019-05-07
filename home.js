@@ -46,6 +46,30 @@ function ACTYObjSetSession(value) {
     document.getElementById('session').value = value;
 }
 
+function internalACTYObjCall() {
+    var companycode = document.getElementById('companycode').value;
+    if (companycode) {
+        console.log("Calling ACTYObjCall with:"+companycode)
+        ACTYObjCall(companycode);
+    } else {
+        console.log("Calling ACTYObjCall")
+        ACTYObjCall();
+    }
+
+}
+
+function internalACTYObjChat() {
+    var companycode = document.getElementById('chatcompanycode').value;
+    if (companycode) {
+        console.log("Calling ACTYObjChat with:"+companycode)
+        ACTYObjChat(companycode);
+    } else {
+        console.log("Calling ACTYObjChat")
+        ACTYObjChat();
+    }
+
+}
+
 function setGPS() {
     ACTYObjSetGPS(Math.floor(Math.random() * 100000))
 }

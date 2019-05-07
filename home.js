@@ -62,10 +62,18 @@ function internalACTYObjChat() {
     var companycode = document.getElementById('chatcompanycode').value;
     if (companycode) {
         console.log("Calling ACTYObjChat with:"+companycode)
-        ACTYObjChat(companycode);
+        if ((typeof(webkit) !== 'undefined')) {
+            webkit.messageMandlers.ACTYObjChat.postMessage({companycode:companycode});
+        } else {
+            ACTYObjChat(companycode);
+        }
     } else {
         console.log("Calling ACTYObjChat")
-        ACTYObjChat();
+        if ((typeof(webkit) !== 'undefined')) {
+            webkit.messageMandlers.ACTYObjChat.postMessage({});
+        } else {
+            ACTYObjChat();
+        }
     }
 
 }

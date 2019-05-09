@@ -48,9 +48,10 @@ function ACTYObjSetSession(value) {
 
 function internalACTYObjCall() {
     var companycode = document.getElementById('companycode').value;
-    if (companycode) {
+    var companyname = document.getElementById('companyname').value;
+    if (companycode && companyname) {
         console.log("Calling ACTYObjCall with:"+companycode)
-        ACTYObjCall(companycode);
+        ACTYObjCall(companycode, companyname);
     } else {
         console.log("Calling ACTYObjCall")
         ACTYObjCall();
@@ -60,9 +61,10 @@ function internalACTYObjCall() {
 
 function internalACTYObjChat() {
     var companycode = document.getElementById('chatcompanycode').value;
-    if (companycode) {
+    var companyname = document.getElementById('chatcompanyname').value;
+    if (companycode && companyname) {
         console.log("Calling ACTYObjChat with:"+companycode)
-        ACTYObjChat(companycode);
+        ACTYObjChat(companycode, companyname);
     } else {
         console.log("Calling ACTYObjChat")
         ACTYObjChat();

@@ -1,6 +1,6 @@
 <html>
 <head>
-    <script src="home.js?16"></script>
+    <script src="home.js?17"></script>
     <title>Learning JavaScript</title>
 </head>
 <body onload="myOnload()">
@@ -29,8 +29,10 @@
 <h1>Call/Chat</h1>
 <form id="chat-form" onsubmit="return false">
     <input id="companycode" type="text" placeholder="company code (optional)" value=""/>
+    <input id="companyname" type="text" placeholder="company name (optional)" value=""/>
     <input id="call_btn" type="submit" value="Call ACTYObjCall" onClick="internalACTYObjCall()"/><p/>
     <input id="chatcompanycode" type="text" placeholder="company code (optional)" value=""/>
+    <input id="chatcompanyname" type="text" placeholder="company name (optional)" value=""/>
     <input id="chat_btn" type="submit" value="Call ACTYObjChat" onClick="internalACTYObjChat()"/>
 </form>
 
@@ -44,8 +46,8 @@
 <h1>DOCS</h1>
 
 <h2>Function for calling Acty</h2>
-<p><b>ACTYObjCall(companycode)</b> this function will put the user in the Acty queue (company code is optional and is for calling other company)</p>
-<p><b>ACTYObjChat(companycode)</b> this function will open the chat screen (company code is optional and is for chatting with other company)</p>
+<p><b>ACTYObjCall(companycode, companyname)</b> this function will put the user in the Acty queue (companycode and companyname are optionals and are for calling other company)</p>
+<p><b>ACTYObjChat(companycode, companyname)</b> this function will open the chat screen (companycode and companyname are optionals and are for chatting with other company)</p>
 <p><b>ACTYObjGetGPS()</b> this function will ask for the gps position (the ACTYObjSetGPS will be called)</p>
 
 

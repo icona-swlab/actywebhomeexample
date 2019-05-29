@@ -79,3 +79,7 @@ function setGPS() {
 function ACTYObjSetGPS(value) {
     document.getElementById('gps').value = value;
 }
+
+function internalACTYObjSetConfig() {
+    // TODO call ACTYObjSetConfig
+}

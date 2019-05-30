@@ -73,8 +73,8 @@ function internalACTYObjChat() {
 function internalACTYObjSetConfig() {
     var server = document.getElementById('server').value;
     var disablemediarec = document.getElementById('disablemediarec').checked;
-    console.log("Calling ACTYObjSetConfig with:"+server+","+(disablemediarec ? "disable" : "enable")+"media rec");
-    ACTYObjSetConfig(server, disablemediarec.checked);
+    console.log("Calling ACTYObjSetConfig with:"+server+","+(disablemediarec ? "disable" : "enable")+" media rec");
+    ACTYObjSetConfig(server, disablemediarec);
 }
 
 function setGPS() {

@@ -56,7 +56,6 @@ function internalACTYObjCall() {
         console.log("Calling ACTYObjCall")
         ACTYObjCall();
     }
-
 }
 
 function internalACTYObjChat() {
@@ -69,7 +68,13 @@ function internalACTYObjChat() {
         console.log("Calling ACTYObjChat")
         ACTYObjChat();
     }
+}
 
+function internalACTYObjSetConfig() {
+    var server = document.getElementById('server').value;
+    var disablemediarec = document.getElementById('disablemediarec').checked;
+    console.log("Calling ACTYObjSetConfig with:"+server+","+(disablemediarec ? "disable" : "enable")+" media rec");
+    ACTYObjSetConfig(server, disablemediarec);
 }
 
 function setGPS() {
@@ -80,6 +85,3 @@ function ACTYObjSetGPS(value) {
     document.getElementById('gps').value = value;
 }
 
-function internalACTYObjSetConfig() {
-    // TODO call ACTYObjSetConfig
-}

@@ -46,8 +46,18 @@
 <h1>CONFIG</h1>
 <form id="config" onsubmit="return false">
     <input id="server" type="text" placeholder="No config" value=""/>
-	<input id="disablemediarec" type="checkbox" name="disablemediarec" value="Allow">Disable photo and screen recording<br>
     <input id="config_btn" type="submit" value="Call ACTYObjSetConfig" onClick="internalACTYObjSetConfig()"/>
+	<br/>
+	<input id="disablemediarec" type="checkbox" name="disablemediarec" value="Allow">Disable photo and screen recording<br>
+</form>
+
+<h1>UNREAD MESSAGES</h1>
+<form id="config" onsubmit="return false">
+	<textarea id="unread_messages" rows="4" cols="50">
+No unread messages
+	</textarea>
+	<br/>
+    <input id="session_btn" type="submit" value="simulate ACTYObjSetUnreadMessages" onClick="simulateSetUnreadMessages()"/>
 </form>
 
 <h1>DOCS</h1>

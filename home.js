@@ -46,6 +46,19 @@ function ACTYObjSetSession(value) {
     document.getElementById('session').value = value;
 }
 
+function simulateSetUnreadMessages() {
+	let unreadMessages = [
+		{company_code: 111, unread_messages: 1},
+		{company_code: 222, unread_messages: 2},
+		{company_code: 333, unread_messages: 3},
+	];
+    ACTYObjSetUnreadMessages(JSON.stringify(unreadMessages));
+}
+
+function ACTYObjSetUnreadMessages(unreadMessages) {
+    document.getElementById('unread_messages').value = unreadMessages;
+}
+
 function internalACTYObjCall() {
     var companycode = document.getElementById('companycode').value;
     var companyname = document.getElementById('companyname').value;

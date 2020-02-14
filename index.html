@@ -8,8 +8,7 @@
 <h1>Your web application (https)</h1>
 <a href="https://10.128.154.182/">Schneider</a>
 
-<!--
-<h1>Login</h1>
+<h1>Store check</h1>
 <form id="register-form" onsubmit="return false">
     <input id="name" type="text" placeholder="Name" value=""/>
     <input id="pw" type="text" placeholder="Password" value=""/>
@@ -21,7 +20,6 @@
     <input id="userPw" type="text" placeholder="Enter Password" value=""/>
     <input id="login_btn" type="submit" value="Login" onClick="check()"/>
 </form>
--->
 
 <h1>Session</h1>
 <p>A session code is automatically created by Acty app native layer at start time and assigned to your Acty device.
@@ -37,7 +35,7 @@
 </form>
 
 <h1>Getting GPS</h1>
-<p>To exchange GPS with Acty native layer, you need to put in your web page a <b>button</b> (which requests the GPS info) and define a <b>function</b> to receive the GPS value.
+<p>To exchange GPS info with Acty native layer, you need to put in your web page a <b>button</b> (which requests the GPS info) and define a <b>function</b> to receive the GPS value.
     <br/><br/>The function MUST be named  <code>ACTYObjSetGPS</code> (see <a href ="#docs">Docs</a>).<br/> In this example page, the function simply fills a form field.
     <br/><br/>The button MUST call the <code>ACTYObjGetGPS</code> function (see <a href ="#docs">Docs</a>).
     <br/>You don't find this function in this example page because it is injected at runtime in your web page by Acty app native layer.
@@ -52,7 +50,7 @@
 </body>
 </html>
 
-<h1>Start Call</h1>
+<h1>Start a Call</h1>
 <p>To initiate a call with your company from mobile, all that you need is a button that calls the <code>ACTYObjCall</code> function.</p>
 You don't find this function in this example page because it is injected at runtime in your web page by Acty app native layer.
 

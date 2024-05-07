@@ -32,7 +32,7 @@ function check() {
 	if (userName.value !== storedName || userPw.value !== storedPw) {
 		alert('ERROR');
 	} else {
-		alert('You are loged in.');
+		alert('You are logged in.');
 	}
 	
 	return false;

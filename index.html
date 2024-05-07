@@ -1,53 +1,53 @@
 <html>
-<head>
-    <script src="home.js?17"></script>
-    <title>Learning JavaScript</title>
-</head>
-<body onload="myOnload()">
-
-<h1>Your web application (https)</h1>
-<a href="https://10.128.154.182/">Schneider</a>
-
-<h1>Store check</h1>
-<form id="register-form" onsubmit="return false">
-    <input id="name" type="text" placeholder="Name" value=""/>
-    <input id="pw" type="text" placeholder="Password" value=""/>
-    <input id="rgstr_btn" type="submit" value="store" onClick="store()"/>
-</form>
-
-<form id="login-form" onsubmit="return false">
-    <input id="userName" type="text" placeholder="Enter Username" value=""/>
-    <input id="userPw" type="text" placeholder="Enter Password" value=""/>
-    <input id="login_btn" type="submit" value="Login" onClick="check()"/>
-</form>
-
-<h1>Session</h1>
-<p>A session code is automatically created by Acty app native layer at start time and assigned to your Acty device.
-    <br/>Acty then communicates it to your web page by calling the Javascript function <code>ACTYObjSetSession(value)</code> that you MUST define in your web page (see <a href ="#docs">Docs</a>) .
-    <br/>The argument <code>value</code> to the function will hold such session code.
-    <br/>In this example, the function simply fills a form field.
-</p>
-<form id="sessionr-form" onsubmit="return false">
-    <input id="session" type="text" placeholder="No session" value=""/>
-<!--
-    <input id="session_btn" type="submit" value="simulate ACTYObjSetSession" onClick="setSession()"/>
--->
-</form>
-
-<h1>Getting GPS</h1>
-<p>To exchange GPS info with Acty native layer, you need to put in your web page a <b>button</b> (which requests the GPS info) and define a <b>function</b> to receive the GPS value.
-    <br/><br/>The function MUST be named  <code>ACTYObjSetGPS</code> (see <a href ="#docs">Docs</a>).<br/> In this example page, the function simply fills a form field.
-    <br/><br/>The button MUST call the <code>ACTYObjGetGPS</code> function (see <a href ="#docs">Docs</a>).
-    <br/>You don't find this function in this example page because it is injected at runtime in your web page by Acty app native layer.
-</p>
-
-<form id="gps-form" onsubmit="return false">
-    <input id="gps" type="text" placeholder="No gps" value=""/>
-    <input id="gps_btn" type="submit" value="Call ACTYObjGetGPS" onClick="ACTYObjGetGPS()"/>
-    <!-- <input id="gps_sim_btn" type="submit" value="simulate ACTYObjSetGPS" onClick="setGPS()"/> -->
-</form>
-
-</body>
+	<head>
+		<script src="home.js?17"></script>
+		<title>Learning JavaScript</title>
+	</head>
+	<body onload="myOnload()">
+		
+		<h1>Your web application (https)</h1>
+		<a href="https://10.128.154.182/">Schneider</a>
+		
+		<h1>Store check</h1>
+		<form id="register-form" onsubmit="return false">
+			<input id="name" type="text" placeholder="Name" value=""/>
+			<input id="pw" type="text" placeholder="Password" value=""/>
+			<input id="rgstr_btn" type="submit" value="store" onClick="store()"/>
+		</form>
+		
+		<form id="login-form" onsubmit="return false">
+			<input id="userName" type="text" placeholder="Enter Username" value=""/>
+			<input id="userPw" type="text" placeholder="Enter Password" value=""/>
+			<input id="login_btn" type="submit" value="Login" onClick="check()"/>
+		</form>
+		
+		<h1>Session</h1>
+		<p>A session code is automatically created by Acty app native layer at start time and assigned to your Acty device.
+		<br/>Acty then communicates it to your web page by calling the Javascript function <code>ACTYObjSetSession(value)</code> that you MUST define in your web page (see <a href ="#docs">Docs</a>) .
+		<br/>The argument <code>value</code> to the function will hold such session code.
+		<br/>In this example, the function simply fills a form field.
+		</p>
+		<form id="sessionr-form" onsubmit="return false">
+			<input id="session" type="text" placeholder="No session" value=""/>
+			<!--
+			<input id="session_btn" type="submit" value="simulate ACTYObjSetSession" onClick="setSession()"/>
+			-->
+		</form>
+		
+		<h1>Getting GPS</h1>
+		<p>To exchange GPS info with Acty native layer, you need to put in your web page a <b>button</b> (which requests the GPS info) and define a <b>function</b> to receive the GPS value.
+		<br/><br/>The function MUST be named  <code>ACTYObjSetGPS</code> (see <a href ="#docs">Docs</a>).<br/> In this example page, the function simply fills a form field.
+		<br/><br/>The button MUST call the <code>ACTYObjGetGPS</code> function (see <a href ="#docs">Docs</a>).
+		<br/>You don't find this function in this example page because it is injected at runtime in your web page by Acty app native layer.
+		</p>
+		
+		<form id="gps-form" onsubmit="return false">
+			<input id="gps" type="text" placeholder="No gps" value=""/>
+			<input id="gps_btn" type="submit" value="Call ACTYObjGetGPS" onClick="ACTYObjGetGPS()"/>
+			<!-- <input id="gps_sim_btn" type="submit" value="simulate ACTYObjSetGPS" onClick="setGPS()"/> -->
+		</form>
+		
+	</body>
 </html>
 
 <h1>Start a Call</h1>
@@ -56,40 +56,40 @@ You don't find this function in this example page because it is injected at runt
 
 </p>
 <form id="chat-form" onsubmit="return false">
-<!--    <input id="companycode" type="text" placeholder="company code (optional)" value=""/>
-    <input id="companyname" type="text" placeholder="company name (optional)" value=""/>
-    <input id="call_btn" type="submit" value="Call ACTYObjCall" onClick="internalACTYObjCall()"/>
--->
-<input id="call_btn" type="submit" value="Start a call" onClick="ACTYObjCall()"/>
-
-<h1>Enter Chat</h1>
-<p>To enter the chat with your company, all that you need is a button that calls the <code>ACTYObjChat</code> function.</p>
-You don't find this function in this example page because it is injected at runtime in your web page by Acty app native layer.
-<br/><br/>
-<!--    <input id="chatcompanycode" type="text" placeholder="company code (optional)" value=""/>
-    <input id="chatcompanyname" type="text" placeholder="company name (optional)" value=""/>
--->
-    <input id="chat_btn" type="submit" value="Enter chat" onClick="ACTYObjChat()"/>
+	<!--    <input id="companycode" type="text" placeholder="company code (optional)" value=""/>
+	<input id="companyname" type="text" placeholder="company name (optional)" value=""/>
+	<input id="call_btn" type="submit" value="Call ACTYObjCall" onClick="internalACTYObjCall()"/>
+	-->
+	<input id="call_btn" type="submit" value="Start a call" onClick="ACTYObjCall()"/>
+	
+	<h1>Enter Chat</h1>
+	<p>To enter the chat with your company, all that you need is a button that calls the <code>ACTYObjChat</code> function.</p>
+	You don't find this function in this example page because it is injected at runtime in your web page by Acty app native layer.
+	<br/><br/>
+	<!--    <input id="chatcompanycode" type="text" placeholder="company code (optional)" value=""/>
+	<input id="chatcompanyname" type="text" placeholder="company name (optional)" value=""/>
+	-->
+	<input id="chat_btn" type="submit" value="Enter chat" onClick="ACTYObjChat()"/>
 </form>
 
 <!--
 <h1>CONFIG</h1>
 <form id="config" onsubmit="return false">
-    <input id="server" type="text" placeholder="No config" value=""/>
-    <input id="config_btn" type="submit" value="Call ACTYObjSetConfig" onClick="internalACTYObjSetConfig()"/>
-	<br/>
-	<input id="disablemediarec" type="checkbox" name="disablemediarec" value="Allow">Disable photo and screen recording<br>
+<input id="server" type="text" placeholder="No config" value=""/>
+<input id="config_btn" type="submit" value="Call ACTYObjSetConfig" onClick="internalACTYObjSetConfig()"/>
+<br/>
+<input id="disablemediarec" type="checkbox" name="disablemediarec" value="Allow">Disable photo and screen recording<br>
 </form>
 -->
 
 <!--
 <h1>UNREAD MESSAGES</h1>
 <form id="config" onsubmit="return false">
-	<textarea id="unread_messages" rows="4" cols="50">
+<textarea id="unread_messages" rows="4" cols="50">
 No unread messages
-	</textarea>
-	<br/>
-    <input id="session_btn" type="submit" value="simulate ACTYObjSetUnreadMessages" onClick="simulateSetUnreadMessages()"/>
+</textarea>
+<br/>
+<input id="session_btn" type="submit" value="simulate ACTYObjSetUnreadMessages" onClick="simulateSetUnreadMessages()"/>
 </form>
 -->
 

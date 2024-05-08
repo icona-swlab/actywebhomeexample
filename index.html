@@ -85,7 +85,26 @@
 		</p>
 		<form id="example1_form">
 			<label>Current session code:</label>
-			<input id="example1_sessionCodeField" type="text" placeholder="### - ### - ###" readonly />
+			<input id="example1_sessionCode" type="text" placeholder="### - ### - ###" readonly />
+		</form>
+		<br>
+		<h2>Enter company queue</h2>
+		<p>
+		You can enter a company queue in two ways:<br>
+		1. you can connect with the current company: just pass 'null' for both function parameters;<br>
+		2. you can connect with a company of your choice: you need the company code and name, otherwise the current company will be used.<br>
+		</p>
+		<p>
+		For example:<br>
+		- <code>ACTYObjCall()</code> will try to enter the queue of the currently connected company;<br>
+		- <code>ACTYObjCall("123456789", "Fake Company")</code> will try to enter the queue of the company named <i>Fake Company</i> with code <i>123456789</i>.
+		</p>
+		<form id="example7_form">
+			<label for="example7_companyCode">Company code (optional):</label>
+			<input type="text" id="example7_companyCode" /><br>
+			<label for="example7_companyName">Company name (optional):</label>
+			<input type="text" id="example7_companyName" /><br><br>
+			<button type="button" onclick="onExample7FormSubmit()">Enter queue</button>
 		</form>
 		<br>
 		<h2>Open chat</h2>
@@ -114,8 +133,8 @@
 		</p>
 		<form id="example3_form">
 			<button type="button" onclick="onExample3FormSubmit()">Request GPS location update</button><br><br>
-			<label for="example3_gpsLocationLabel">Current GPS location:</label>
-			<input id="example3_gpsLocationField" type="text" placeholder="-" readonly />
+			<label for="example3_gpsLocation">Current GPS location:</label>
+			<input id="example3_gpsLocation" type="text" placeholder="-" readonly />
 		</form>
 		<br>
 		<h2>Launch DWI (Digital Work Instructions)</h2>
@@ -134,9 +153,9 @@
 		<p>You can change some settings by calling the function <code>ACTYObjSetConfig(serverHost, disableMediaRec)</code>.</p>
 		<form id="example6_form">
 			<label for="example6_serverHost">Server host (optional):</label>
-			<input type="text" id="example6_serverHost" /><br>
+			<input id="example6_serverHost" type="text" /><br>
 			<label for="example6_disableMediaRec">Disable media recording:</label>
-			<input type="checkbox" id="example6_disableMediaRec" /><br><br>
+			<input id="example6_disableMediaRec" type="checkbox" /><br><br>
 			<button type="button" onclick="onExample6FormSubmit()">Save settings</button>
 		</form>
 	</body>

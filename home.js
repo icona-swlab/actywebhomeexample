@@ -1,100 +1,96 @@
-// Name and Password from the register-form
-var name = document.getElementById('name');
-var pw = document.getElementById('pw');
 
-function myOnload() {
-	console.log("OnLoad")
-	console.log("name:"+localStorage.getItem('name' ))
-	document.getElementById('name').value = localStorage.getItem('name' )
-	document.getElementById('pw').value = localStorage.getItem('pw' )
+// Functions for calling Acty
+
+function ACTYObjCall(companyCode, companyName) {
+	var code = denullify(companyCode);
+	var name = denullify(companyName);
+	onCallbackNotSupported("ACTYObjCall", "[companyCode = '" + code + "'; companyName = '" + name + "']")
 }
 
-// storing input from register-form
-function store() {
-	localStorage.setItem('name', document.getElementById('name').value);
-	localStorage.setItem('pw', document.getElementById('pw').value);
-	
-	return false;
+function ACTYObjChat(companyCode, companyName) {
+	var code = denullify(companyCode);
+	var name = denullify(companyName);
+	onCallbackNotSupported("ACTYObjChat", "[companyCode = '" + code + "'; companyName = '" + name + "']")
 }
 
-// check if stored data from register-form is equal to entered data in the   login-form
-function check() {
-	
-	// stored data from the register-form
-	var storedName = localStorage.getItem('name');
-	var storedPw = localStorage.getItem('pw');
-	
-	// entered data from the login-form
-	var userName = document.getElementById('userName');
-	var userPw = document.getElementById('userPw');
-	
-	// check if stored data from register-form is equal to data from login form
-	if (userName.value !== storedName || userPw.value !== storedPw) {
-		alert('ERROR');
-	} else {
-		alert('You are logged in.');
+function ACTYObjGetGPS() {
+	onCallbackNotSupported("ACTYObjGetGPS")
+}
+
+function ACTYObjOpenWorkInstructions() {
+	onCallbackNotSupported("ACTYObjOpenWorkInstructions")
+}
+
+function ACTYObjRetry() {
+	onCallbackNotSupported("ACTYObjRetry")
+}
+
+function ACTYObjSetConfig(serverHost, disableMediaRec) {
+	var host = denullify(serverHost);
+	onCallbackNotSupported("ACTYObjSetConfig", "[serverHost = '" + host + "'; disableMediaRec = '" + disableMediaRec + "']")
+}
+
+// Functions called from Acty
+
+function ACTYObjSetGPS(location) {
+	document.getElementById("example3_gpsLocationField").value = isEmpty(location) ? null : location;
+}
+
+function ACTYObjSetSession(sessionCode) {
+	var element = document.getElementById("example1_sessionCodeField");
+	if(sessionCode.length != 9) {
+		element.value = null;
+		return;
 	}
 	
-	return false;
-}
-
-function setSession() {
-	ACTYObjSetSession(Math.floor(Math.random() * 100000))
-}
-
-function ACTYObjSetSession(value) {
-	document.getElementById('session').value = value;
-}
-
-function simulateSetUnreadMessages() {
-	let unreadMessages = [
-		{company_code: 111, unread_messages: 1},
-		{company_code: 222, unread_messages: 2},
-		{company_code: 333, unread_messages: 3},
-	];
-	ACTYObjSetUnreadMessages(JSON.stringify(unreadMessages));
+	var slice1 = sessionCode.slice(0, 3);
+	var slice2 = sessionCode.slice(3, 6);
+	var slice3 = sessionCode.slice(6, 9);
+	element.value = slice1 + " - " + slice2 + " - " + slice3;
 }
 
 function ACTYObjSetUnreadMessages(unreadMessages) {
-	document.getElementById('unread_messages').value = unreadMessages;
+	alert("ACTYObjSetUnreadMessages not implemented");
 }
 
-function internalACTYObjCall() {
-	var companycode = document.getElementById('companycode').value;
-	var companyname = document.getElementById('companyname').value;
-	if (companycode && companyname) {
-		console.log("Calling ACTYObjCall with:"+companycode)
-		ACTYObjCall(companycode, companyname);
-	} else {
-		console.log("Calling ACTYObjCall")
-		ACTYObjCall();
+// Other functions
+
+function denullify(string) {
+	return isEmpty(string) ? "null" : string;
+}
+
+function isEmpty(string) {
+	return string === null || string.trim() === "";
+}
+
+function onCallbackNotSupported(callbackName, parameters = null) {
+	var text = callbackName + " not supported by this version of Acty.";
+	if(!isEmpty(parameters)) {
+		text += "\n" + parameters;
 	}
+	alert(text);
 }
 
-function internalACTYObjChat() {
-	var companycode = document.getElementById('chatcompanycode').value;
-	var companyname = document.getElementById('chatcompanyname').value;
-	if (companycode && companyname) {
-		console.log("Calling ACTYObjChat with:"+companycode)
-		ACTYObjChat(companycode, companyname);
-	} else {
-		console.log("Calling ACTYObjChat")
-		ACTYObjChat();
-	}
+function onExample2FormSubmit() {
+	var companyCode = document.getElementById("example2_companyCodeField").value;
+	var companyName = document.getElementById("example2_companyNameField").value;
+	ACTYObjChat(companyCode, companyName);
 }
 
-function internalACTYObjSetConfig() {
-	var server = document.getElementById('server').value;
-	var disablemediarec = document.getElementById('disablemediarec').checked;
-	console.log("Calling ACTYObjSetConfig with:"+server+","+(disablemediarec ? "disable" : "enable")+" media rec");
-	ACTYObjSetConfig(server, disablemediarec);
+function onExample3FormSubmit() {
+	ACTYObjGetGPS();
 }
 
-function setGPS() {
-	ACTYObjSetGPS(Math.floor(Math.random() * 100000))
+function onExample4FormSubmit() {
+	ACTYObjOpenWorkInstructions();
 }
 
-function ACTYObjSetGPS(value) {
-	document.getElementById('gps').value = value;
+function onExample5FormSubmit() {
+	ACTYObjRetry();
 }
 
+function onExample6FormSubmit() {
+	var serverHost = document.getElementById("example6_serverHost").value;
+	var disableMediaRec = document.getElementById("example6_disableMediaRec").checked;
+	ACTYObjSetConfig(serverHost, disableMediaRec);
+}

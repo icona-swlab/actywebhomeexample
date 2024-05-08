@@ -94,3 +94,9 @@ function onExample6FormSubmit() {
 	var disableMediaRec = document.getElementById("example6_disableMediaRec").checked;
 	ACTYObjSetConfig(serverHost, disableMediaRec);
 }
+
+function onExample7FormSubmit() {
+	var companyCode = document.getElementById("example7_companyCode").value;
+	var companyName = document.getElementById("example7_companyName").value;
+	ACTYObjCall(companyCode, companyName);
+}

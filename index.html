@@ -88,6 +88,25 @@
 			<input id="example1_sessionCode" type="text" placeholder="### - ### - ###" readonly />
 		</form>
 		<br>
+		<h2>Enter company queue</h2>
+		<p>
+		You can enter a company queue in two ways:<br>
+		1. you can connect with the current company: just pass 'null' for both function parameters;<br>
+		2. you can connect with a company of your choice: you need the company code and name, otherwise the current company will be used.<br>
+		</p>
+		<p>
+		For example:<br>
+		- <code>ACTYObjCall()</code> will try to enter the queue of the currently connected company;<br>
+		- <code>ACTYObjCall("123456789", "Fake Company")</code> will try to enter the queue of the company named <i>Fake Company</i> with code <i>123456789</i>.
+		</p>
+		<form id="example7_form">
+			<label for="example7_companyCode">Company code (optional):</label>
+			<input type="text" id="example7_companyCode" /><br>
+			<label for="example7_companyName">Company name (optional):</label>
+			<input type="text" id="example7_companyName" /><br><br>
+			<button type="button" onclick="onExample7FormSubmit()">Enter queue</button>
+		</form>
+		<br>
 		<h2>Open chat</h2>
 		<p>
 		You can open a chat with a company in two ways:<br>

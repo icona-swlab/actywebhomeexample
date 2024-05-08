@@ -1,118 +1,143 @@
 <html>
-<head>
-    <script src="home.js?17"></script>
-    <title>Learning JavaScript</title>
-</head>
-<body onload="myOnload()">
-
-<h1>Your web application (https)</h1>
-<a href="https://10.128.154.182/">Schneider</a>
-
-<h1>Store check</h1>
-<form id="register-form" onsubmit="return false">
-    <input id="name" type="text" placeholder="Name" value=""/>
-    <input id="pw" type="text" placeholder="Password" value=""/>
-    <input id="rgstr_btn" type="submit" value="store" onClick="store()"/>
-</form>
-
-<form id="login-form" onsubmit="return false">
-    <input id="userName" type="text" placeholder="Enter Username" value=""/>
-    <input id="userPw" type="text" placeholder="Enter Password" value=""/>
-    <input id="login_btn" type="submit" value="Login" onClick="check()"/>
-</form>
-
-<h1>Session</h1>
-<p>A session code is automatically created by Acty app native layer at start time and assigned to your Acty device.
-    <br/>Acty then communicates it to your web page by calling the Javascript function <code>ACTYObjSetSession(value)</code> that you MUST define in your web page (see <a href ="#docs">Docs</a>) .
-    <br/>The argument <code>value</code> to the function will hold such session code.
-    <br/>In this example, the function simply fills a form field.
-</p>
-<form id="sessionr-form" onsubmit="return false">
-    <input id="session" type="text" placeholder="No session" value=""/>
-<!--
-    <input id="session_btn" type="submit" value="simulate ACTYObjSetSession" onClick="setSession()"/>
--->
-</form>
-
-<h1>Getting GPS</h1>
-<p>To exchange GPS info with Acty native layer, you need to put in your web page a <b>button</b> (which requests the GPS info) and define a <b>function</b> to receive the GPS value.
-    <br/><br/>The function MUST be named  <code>ACTYObjSetGPS</code> (see <a href ="#docs">Docs</a>).<br/> In this example page, the function simply fills a form field.
-    <br/><br/>The button MUST call the <code>ACTYObjGetGPS</code> function (see <a href ="#docs">Docs</a>).
-    <br/>You don't find this function in this example page because it is injected at runtime in your web page by Acty app native layer.
-</p>
-
-<form id="gps-form" onsubmit="return false">
-    <input id="gps" type="text" placeholder="No gps" value=""/>
-    <input id="gps_btn" type="submit" value="Call ACTYObjGetGPS" onClick="ACTYObjGetGPS()"/>
-    <!-- <input id="gps_sim_btn" type="submit" value="simulate ACTYObjSetGPS" onClick="setGPS()"/> -->
-</form>
-
-</body>
-</html>
-
-<h1>Start a Call</h1>
-<p>To initiate a call with your company from mobile, all that you need is a button that calls the <code>ACTYObjCall</code> function.</p>
-You don't find this function in this example page because it is injected at runtime in your web page by Acty app native layer.
-
-</p>
-<form id="chat-form" onsubmit="return false">
-<!--    <input id="companycode" type="text" placeholder="company code (optional)" value=""/>
-    <input id="companyname" type="text" placeholder="company name (optional)" value=""/>
-    <input id="call_btn" type="submit" value="Call ACTYObjCall" onClick="internalACTYObjCall()"/>
--->
-<input id="call_btn" type="submit" value="Start a call" onClick="ACTYObjCall()"/>
-
-<h1>Enter Chat</h1>
-<p>To enter the chat with your company, all that you need is a button that calls the <code>ACTYObjChat</code> function.</p>
-You don't find this function in this example page because it is injected at runtime in your web page by Acty app native layer.
-<br/><br/>
-<!--    <input id="chatcompanycode" type="text" placeholder="company code (optional)" value=""/>
-    <input id="chatcompanyname" type="text" placeholder="company name (optional)" value=""/>
--->
-    <input id="chat_btn" type="submit" value="Enter chat" onClick="ACTYObjChat()"/>
-</form>
-
-<!--
-<h1>CONFIG</h1>
-<form id="config" onsubmit="return false">
-    <input id="server" type="text" placeholder="No config" value=""/>
-    <input id="config_btn" type="submit" value="Call ACTYObjSetConfig" onClick="internalACTYObjSetConfig()"/>
-	<br/>
-	<input id="disablemediarec" type="checkbox" name="disablemediarec" value="Allow">Disable photo and screen recording<br>
-</form>
--->
-
-<!--
-<h1>UNREAD MESSAGES</h1>
-<form id="config" onsubmit="return false">
-	<textarea id="unread_messages" rows="4" cols="50">
-No unread messages
-	</textarea>
-	<br/>
-    <input id="session_btn" type="submit" value="simulate ACTYObjSetUnreadMessages" onClick="simulateSetUnreadMessages()"/>
-</form>
--->
-
-<h1 id="docs" >DOCS</h1>
-
-<h2>Function for calling Acty</h2>
-<!-- <p><b>ACTYObjCall(companycode, companyname)</b> this function will put the user in the Acty queue (companycode and companyname are optionals and are for calling other company)</p>
-<p><b>ACTYObjChat(companycode, companyname)</b> this function will open the chat screen (companycode and companyname are optionals and are for chatting with other company)</p> -->
-<p><b>ACTYObjCall()</b> this function will put the user in the Acty queue</p>
-<p><b>ACTYObjChat()</b> this function will open the chat screen </p>
-
-<p><b>ACTYObjGetGPS()</b> this function will ask for the gps position (the ACTYObjSetGPS will be called in response)</p>
-<!-- <p><b>ACTYObjSetConfig(server, disableMediaRec)</b> this function will set the options of the acty client</p> -->
-
-
-<h2>Function called from Acty</h2>
-<p><b>ACTYObjSetSession(value)</b> this function will be called when the session code is available (on each onload event)</p>
-<p><b>ACTYObjSetGPS(pos)</b> this function will be called when the gps pos is available (in ISO 6709 format)</p>
-<p><b>ACTYObjSetUnreadMessages([{company_code: String, unread_messages: int}, ...])</b> this function will be called on each reload with the number of unread messages</p>
-
-<!--
-<a href="https://actywebhomeexample.techstyle.website/">Techstyle</a>
-<a href="https://cavannaportal.deskoala.com/portal/cavanna/login/app">Cavanna</a>
--->
-</body>
+	<head>
+		<title>Acty Web Home Documentation</title>
+		<script src="home.js"></script>
+	</head>
+	<body>
+		<h1><u>Available Functions</u></h1>
+		<br>
+		<h2>Calling Acty</h2>
+		<p>This is a list of functions that Acty prepares and can be called by the web layer.</p>
+		<ul>
+			<li>
+				<b>ACTYObjCall(companyCode, companyName)</b>
+				<p>
+				Used to let the customer enter the queue of the selected company.<br>
+				Parameters <code>companyCode</code> and <code>companyName</code> are optionals: if any of them is empty and a default company is already set, that company will be used.
+				</p>
+			</li>
+			<li>
+				<b>ACTYObjChat(companyCode, companyName)</b>
+				<p>
+				Used to let the customer enter in chat with the selected company.<br>
+				Parameters <code>companyCode</code> and <code>companyName</code> are optionals: if any of them is empty and a default company is already set, that company will be used.
+				</p>
+			</li>
+			<li>
+				<b>ACTYObjGetGPS()</b>
+				<p>
+				Used to request an update of the GPS location of the customer.<br>
+				The response will be given using function <code>ACTYObjSetGPS(location)</code>.
+				</p>
+			</li>
+			<li>
+				<b>ACTYObjOpenWorkInstructions()</b>
+				<p>Used to launch the DWI (Digital Work Instructions) module.</p>
+			</li>
+			<li>
+				<b>ACTYObjRetry()</b>
+				<p>Used to reload this page.</p>
+			</li>
+			<li>
+				<b>ACTYObjSetConfig(serverHost, disableMediaRec)</b>
+				<p>
+				Used to change the defaut settings of the app:<br>
+				<code>serverHost</code>: the app will try to connect to this server.<br>
+				<code>disableMediaRec</code>: denies permission to record the assistance.<br>
+				</p>
+			</li>
+		</ul>
+		<br>
+		<h2>Called from Acty</h2>
+		<p>This is a list of functions that Acty will use to send data to the web layer.</p>
+		<ul>
+			<li>
+				<b>ACTYObjSetGPS(location)</b>
+				<p>
+				Used to update the GPS location of the customer inside the web page.<br>
+				Parameter <code>sessionCode</code> contains the most recent GPS location of the customer in ISO6709 format.<br>
+				This is called in response to function <code>ACTYObjGetGPS()</code>.
+				</p>
+			</li>
+			<li>
+				<b>ACTYObjSetSession(sessionCode)</b>
+				<p>
+				Used to display the session code inside the web page.<br>
+				Parameter <code>sessionCode</code> contains the code the expert needs to start an assistance.
+				</p>
+			</li>
+			<li>
+				<b>ACTYObjSetUnreadMessages(unreadMessages)</b>
+				<p>
+				Used to update the number of unread messages (divided by company code) inside the web page.<br>
+				Parameter <code>unreadMessages</code> contains a stringified JSON array of objects with structure "<code>{company_code: String, unread_messages: int}</code>".
+				</p>
+			</li>
+		</ul>
+		<br><hr><br>
+		<h1><u>Examples</u></h1>
+		<br>
+		<h2>Start assistance</h2>
+		<p>
+		A session code is automatically created by Acty at app launch and assigned to your customer profile.<br>
+		Then Acty sends it to your web page by calling the Javascript function <code>ACTYObjSetSession(sessionCode)</code> to be presented to the customer.<br>
+		Then the customer shares this session code, via their preferred method (SMS, phone call, etc.), with the expert who will start the assistance.
+		</p>
+		<form id="example1_form">
+			<label>Current session code:</label>
+			<input id="example1_sessionCodeField" type="text" placeholder="### - ### - ###" readonly />
+		</form>
+		<br>
+		<h2>Open chat</h2>
+		<p>
+		You can open a chat with a company in two ways:<br>
+		1. you can connect with the current company: just pass 'null' for both function parameters;<br>
+		2. you can connect with a company of your choice: you need the company code and name, otherwise the current company will be used.<br>
+		</p>
+		<p>
+		For example:<br>
+		- <code>ACTYObjChat()</code> will try to open a chat with the currently connected company;<br>
+		- <code>ACTYObjChat("123456789", "Fake Company")</code> will try to open a chat with a company named <i>Fake Company</i> with code <i>123456789</i>.
+		</p>
+		<form id="example2_form">
+			<label for="example2_companyCode">Company code (optional):</label>
+			<input type="text" id="example2_companyCode" /><br>
+			<label for="example2_companyName">Company name (optional):</label>
+			<input type="text" id="example2_companyName" /><br><br>
+			<button type="button" onclick="onExample2FormSubmit()">Open chat</button>
+		</form>
+		<br>
+		<h2>Request GPS location</h2>
+		<p>
+		You can request an update of the customer GPS location to Acty by calling the function <code>ACTYObjGetGPS()</code>.<br>
+		Acty will then request permission from the customer, and if they agree, it will send you the location by calling the function <code>ACTYObjSetGPS(location)</code>.
+		</p>
+		<form id="example3_form">
+			<button type="button" onclick="onExample3FormSubmit()">Request GPS location update</button><br><br>
+			<label for="example3_gpsLocationLabel">Current GPS location:</label>
+			<input id="example3_gpsLocationField" type="text" placeholder="-" readonly />
+		</form>
+		<br>
+		<h2>Launch DWI (Digital Work Instructions)</h2>
+		<p>You can launch the DWI module by calling the function <code>ACTYObjOpenWorkInstructions()</code>.</p>
+		<form id="example4_form">
+			<button type="button" onclick="onExample4FormSubmit()">Launch DWI</button><br><br>
+		</form>
+		<br>
+		<h2>Reload page</h2>
+		<p>You can reload your web page by calling the function <code>ACTYObjRetry()</code>.</p>
+		<form id="example5_form">
+			<button type="button" onclick="onExample5FormSubmit()">Reload page</button><br><br>
+		</form>
+		<br>
+		<h2>Change settings</h2>
+		<p>You can change some settings by calling the function <code>ACTYObjSetConfig(serverHost, disableMediaRec)</code>.</p>
+		<form id="example6_form">
+			<label for="example6_serverHost">Server host (optional):</label>
+			<input type="text" id="example6_serverHost" /><br>
+			<label for="example6_disableMediaRec">Disable media recording:</label>
+			<input type="checkbox" id="example6_disableMediaRec" /><br><br>
+			<button type="button" onclick="onExample6FormSubmit()">Save settings</button>
+		</form>
+	</body>
 </html>

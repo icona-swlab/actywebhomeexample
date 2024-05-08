@@ -33,11 +33,11 @@ function ACTYObjSetConfig(serverHost, disableMediaRec) {
 // Functions called from Acty
 
 function ACTYObjSetGPS(location) {
-	document.getElementById("example3_gpsLocationField").value = isEmpty(location) ? null : location;
+	document.getElementById("example3_gpsLocation").value = isEmpty(location) ? null : location;
 }
 
 function ACTYObjSetSession(sessionCode) {
-	var element = document.getElementById("example1_sessionCodeField");
+	var element = document.getElementById("example1_sessionCode");
 	if(sessionCode.length != 9) {
 		element.value = null;
 		return;
@@ -72,8 +72,8 @@ function onCallbackNotSupported(callbackName, parameters = null) {
 }
 
 function onExample2FormSubmit() {
-	var companyCode = document.getElementById("example2_companyCodeField").value;
-	var companyName = document.getElementById("example2_companyNameField").value;
+	var companyCode = document.getElementById("example2_companyCode").value;
+	var companyName = document.getElementById("example2_companyName").value;
 	ACTYObjChat(companyCode, companyName);
 }
 
